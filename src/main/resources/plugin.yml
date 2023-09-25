@@ -1,0 +1,5 @@
+name: OrbitalEconomy
+version: 1.0
+main: me.hostadam.economy.EconomyPlugin
+author: Hostadam
+api-version: 1.19
