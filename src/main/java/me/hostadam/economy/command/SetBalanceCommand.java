@@ -44,9 +44,9 @@ public class SetBalanceCommand extends Command {
             }
 
             economyPlayer.setBalance(amount);
-            sender.sendMessage("§eYou set the balance of §f'" + args[1] + "' §eto §2$§f" + amount + "§e.");
+            sender.sendMessage("§eYou set the balance of §f'" + args[0] + "' §eto §2$§f" + amount + "§e.");
         } else {
-            sender.sendMessage("§cUsage: " + this.getUsage());
+            sender.sendMessage("§cUsage: /" + this.getUsage());
         }
 
         return true;

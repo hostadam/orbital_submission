@@ -53,7 +53,7 @@ public class GiveCommand extends Command {
             senderEconomy.deductBalance(amount);
             sender.sendMessage("§eYou gave away §f" + amount + "§e.");
         } else {
-            sender.sendMessage("§cUsage: " + this.getUsage());
+            sender.sendMessage("§cUsage: /" + this.getUsage());
         }
 
         return true;
