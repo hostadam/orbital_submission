@@ -2,6 +2,7 @@ package me.hostadam.economy.data;
 
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.ReplaceOptions;
+import com.mongodb.client.model.UpdateOptions;
 import lombok.Getter;
 import me.hostadam.economy.EconomyPlugin;
 import org.bson.Document;
@@ -51,7 +52,7 @@ public class EconomyPlayer {
     public void save() {
         Document document = new Document("uniqueId", this.uniqueId.toString())
                 .append("balance", this.balance);
-        this.plugin.getDatabase().getPlayers().replaceOne(Filters.eq("uniqueId", this.uniqueId.toString()), document, new ReplaceOptions().upsert(true));
+        this.plugin.getDatabase().getPlayers().updateOne(Filters.eq("uniqueId", this.uniqueId.toString()), document, new UpdateOptions().upsert(true));
     }
 
     public void load() {
