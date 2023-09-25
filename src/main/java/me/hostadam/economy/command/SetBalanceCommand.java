@@ -14,7 +14,7 @@ public class SetBalanceCommand extends Command {
 
     private final EconomyPlugin plugin;
     public SetBalanceCommand(EconomyPlugin economyPlugin) {
-        super("setbalance", "Set a player's balance", "setbalance <player> <amount>", Arrays.asList("setbal"));
+        super("setbalance", "Set a player's balance", "setbal <player> <amount>", Arrays.asList("setbal"));
         this.plugin = economyPlugin;
     }
 

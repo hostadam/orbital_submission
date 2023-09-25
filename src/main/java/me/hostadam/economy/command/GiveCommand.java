@@ -44,6 +44,11 @@ public class GiveCommand extends Command {
             }
 
             EconomyPlayer senderEconomy = this.plugin.getPlayerHandler().byUniqueId(player.getUniqueId());
+            if(senderEconomy.getUniqueId().equals(economyPlayer.getUniqueId())) {
+                sender.sendMessage("§cYou cannot give money to yourself.");
+                return true;
+            }
+
             if(senderEconomy.getBalance() < amount) {
                 sender.sendMessage("§cInsufficient funds.");
                 return true;
@@ -51,7 +56,7 @@ public class GiveCommand extends Command {
 
             economyPlayer.addBalance(amount);
             senderEconomy.deductBalance(amount);
-            sender.sendMessage("§eYou gave away §f" + amount + "§e.");
+            sender.sendMessage("§eYou gave away §2$§f" + amount + "§e.");
         } else {
             sender.sendMessage("§cUsage: /" + this.getUsage());
         }

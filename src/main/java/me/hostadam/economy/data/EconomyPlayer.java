@@ -33,7 +33,7 @@ public class EconomyPlayer {
     }
 
     public boolean canEarn() {
-        return this.lastEarnUsed == 0 || System.currentTimeMillis() - this.lastEarnUsed > TimeUnit.MINUTES.toMinutes(1);
+        return this.lastEarnUsed == 0 || System.currentTimeMillis() - this.lastEarnUsed > TimeUnit.MINUTES.toMillis(1);
     }
 
     public void addBalance(double balance) {
@@ -52,7 +52,7 @@ public class EconomyPlayer {
     public void save() {
         Document document = new Document("uniqueId", this.uniqueId.toString())
                 .append("balance", this.balance);
-        this.plugin.getDatabase().getPlayers().updateOne(Filters.eq("uniqueId", this.uniqueId.toString()), document, new UpdateOptions().upsert(true));
+        this.plugin.getDatabase().getPlayers().replaceOne(Filters.eq("uniqueId", this.uniqueId.toString()), document, new ReplaceOptions().upsert(true));
     }
 
     public void load() {
